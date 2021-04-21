@@ -113,6 +113,10 @@ export default {
     users: {
       type: Array,
       default: () => ([])
+    },
+    errors: {
+      type: Array,
+      default: () => ([])
     }
   },
 
@@ -120,7 +124,6 @@ export default {
     return {
       asc: false,
       sortColumn: "",
-      errors: [],
       columns: ["id", "firstName", "lastName", "email", "phone"],
       selectedItem: null,
       page: 1,
@@ -235,8 +238,7 @@ export default {
   },
 
   watch: {
-    users(newValue) {
-      console.log(newValue, 'pp');
+    users() {
       this.setPages()
     },
   },
